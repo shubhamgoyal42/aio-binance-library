@@ -83,13 +83,13 @@ class Ws:
 
     def __create_url(self, path):
         if self.listen_key:
-            _host = 'wss://fstream-auth.binance.com'
+            _host = 'wss://fstream.binance.com'
             if path.find('listenKey') >= 0:
-                return f"{_host}/ws/{self.listen_key}?{path}={self.listen_key}"
+                return f"{_host}/ws/{self.listen_key}"
             elif path.find('streams') >= 0:
                 return f"{_host}/stream?{path}&listenKey={self.listen_key}"
             else:
-                return f"{_host}/ws/{path}?listenKey={self.listen_key}"
+                return f"{_host}/ws/{self.listen_key}/{path}"
         else:
             _host = 'wss://fstream.binance.com'
             if path.find('streams') >= 0:
