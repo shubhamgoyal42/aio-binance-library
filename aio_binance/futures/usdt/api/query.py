@@ -36,7 +36,8 @@ class Api:
     @classmethod
     def __init_params(cls, timeout):
         cls.HEADERS = {
-            "client_SDK_Version": f"aio-binance-library v{__version__}-py3.10"
+            "client_SDK_Version": f"aio-binance-library v{__version__}-py3.10",
+            "connection": "keep-alive",
         }
         cls.TIMEOUT = timeout
 
